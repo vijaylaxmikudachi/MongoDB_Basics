@@ -1,0 +1,56 @@
+CRUD::
+
+The core operations in any RESTful API are tied to the 
+fundamental CRUD (Create, Read, Update, Delete) actions, 
+which are mapped to specific HTTP methods. 
+These operations allow a client to interact with resources (like database entries) on the server. 
+
+1. CREATE (POST)
+HTTP Method: POST
+Purpose: To create a new resource on the server.
+Request Format: The client sends data in the request body (usually in JSON format) that represents the new resource 
+                to be created.
+
+Non-idempotent: Sending the same POST request multiple times may result in creating duplicate resources.
+Use Case: Adding new items (e.g., registering a user, creating a new blog post).
+
+2. READ (GET)
+HTTP Method: GET
+Purpose: To retrieve or read data from the server. This is a safe and idempotent method, 
+         meaning no data on the server is modified.
+
+Safe and Idempotent: No changes are made to the server, and repeated requests will return the same response.
+Use Case: Viewing details (e.g., viewing a product list, getting user profile information).
+
+3.UPDATE (PUT)
+HTTP Method: PUT
+Purpose: To update an existing resource on the server. This method typically replaces the entire resource with new data.
+
+Idempotent: Sending the same PUT request multiple times will result in the same state on the server. 
+            Each subsequent PUT request with the same data does not change the state after the first one.
+Use Case: Updating an entire resource (e.g., editing a user’s profile, replacing product information).
+
+4. UPDATE (Partial) - PATCH
+HTTP Method: PATCH
+Purpose: To partially update an existing resource. 
+         Instead of replacing the whole resource, PATCH modifies only the fields that are provided in the request body.
+
+Idempotent: Like PUT, sending the same PATCH request multiple times will result in the same state on the server.
+Use Case: Updating only certain fields of a resource 
+          (e.g., changing a user's email, updating the stock count of a product).
+
+5. DELETE (DELETE)
+HTTP Method: DELETE
+Purpose: To delete a resource from the server.
+
+Idempotent: Sending the same DELETE request multiple times has the same effect. 
+            Once the resource is deleted, further DELETE requests will have no effect.
+Use Case: Removing resources (e.g., deleting a user account, removing a product from the catalog).
+
+HTTP Method	                           Action	            Purpose	                    Idempotency
+POST	                               Create	       Create a new resource	           No
+GET                                    	Read	       Retrieve a resource                 Yes
+PUT	                                   Update	      Update/replace entirely	           Yes
+PATCH	                               Update	         Partially update 	               Yes
+DELETE	                               Delete	         Delete a resource	               Yes
+

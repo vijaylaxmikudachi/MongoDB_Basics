@@ -1,0 +1,47 @@
+API (Application Programming Interface) :- 
+is a set of rules and protocols that allows one piece of software to communicate with another. 
+It defines how different software components should interact. 
+APIs can be thought of as contracts that let systems talk to each other and share data or services.
+
+Key Aspects of an API:
+Interface: It provides an interface for different software applications to interact with each other 
+           without needing to understand the internals of each system.
+Protocols: APIs use predefined protocols (rules), which could be HTTP, SOAP, or other communication methods.
+Endpoints: APIs expose specific endpoints (URLs:Uniform Resource Locator or URIs:Uniform Resource Identifier) 
+           through which different functionalities are accessed.
+
+example:
+a weather service API allows your application to get real-time weather data without knowing how the weather service itself works.
+
+WEB services::-
+
+REST vs SOAP:
+SOAP (Simple Object Access Protocol) is another protocol for building APIs but it is more complex and uses XML for communication, while REST typically uses JSON over HTTP.
+SOAP APIs are rigid and follow a stricter protocol, whereas REST APIs are flexible and lightweight.
+
+REST (Representational State Transfer) :-
+is an architectural style that is used to build APIs that follow certain constraints. 
+A REST API is an API that follows the principles of REST and communicates over HTTP to perform operations on resources.
+
+REST APIs have become the most common way for web services to communicate, 
+especially in modern web and mobile applications.
+
+Client-Server Architecture:
+
+Separation of concerns between the client (which makes requests) and the server (which processes those requests).
+The client could be a web app, mobile app, or any service that consumes the API.
+
+HTTP Methods in REST API:
+
+GET: Retrieve data from the server (e.g., fetching a list of users).
+POST: Send data to the server to create a new resource (e.g., creating a new user).
+PUT: Update an existing resource on the server (e.g., updating user information).
+DELETE: Remove a resource from the server (e.g., deleting a user).
+PATCH: Partially update an existing resource (e.g., modifying only the user’s email).
+
+REST API Constraints:
+Statelessness: The server doesn’t store any session information, 
+               so every request needs to provide all necessary information (e.g., authentication tokens).
+Scalability: REST APIs are scalable since they can be stateless, allowing easy horizontal scaling.
+Flexibility: REST APIs allow for loose coupling between the client and server, enabling them to evolve independently.
+
