@@ -1,0 +1,54 @@
+MVC::-
+
+MVC stands for Model-View-Controller, which is a design pattern used in software development to separate an 
+application into three interconnected components. 
+This separation helps organize code, improves maintainability, and promotes reusability by decoupling concerns. 
+
+Each component in MVC has a specific role:
+Model: Represents the application's data and business logic.
+View: Represents the user interface (UI) and how data is presented.
+Controller: Acts as an intermediary between the Model and View, 
+            handling user input and updating both the Model and the View.
+The Three Components of MVC
+1. Model:
+The Model represents the data and the business logic of the application. It is responsible for:
+Managing data (e.g., retrieving, storing, updating, or deleting data from a database).
+Applying business rules to ensure data integrity.
+Handling any logic related to data manipulation.
+The Model does not concern itself with how the data is displayed; 
+it simply handles the data itself. When the data changes, the Model notifies the View to update the display accordingly.
+
+Example: In an e-commerce application, the Model would manage product data, 
+such as product name, price, quantity, etc., and handle operations like updating the price or adding new products.
+
+2. View:
+The View is the component responsible for 
+displaying data to the user. 
+It defines how the user interface (UI) looks, and how information from the Model is presented. 
+The View can be anything from an HTML page in a web application to a user interface in a desktop or mobile application.
+The View does not contain any business logic; it is solely focused on rendering the data provided by the Model. 
+If the Model changes, the View is updated to reflect those changes.
+
+Example: In the e-commerce application, the View would display the list of products, including their names, prices, and images. It might include buttons or forms to allow users to interact with the application, such as adding items to the cart.
+
+3. Controller:
+The Controller is the component that handles user input, interacts with the Model, and updates the View. 
+It receives input (such as a button click or form submission), processes that input 
+(e.g., updating the Model or querying data), and then returns the appropriate output (e.g., updating the View).
+
+The Controller is responsible for:
+
+Interpreting user actions (such as clicking a button, filling out a form, or navigating to a different page).
+Calling methods on the Model to manipulate data.
+Deciding which View to render based on the results of the Model.
+Example: In the e-commerce application, if a user clicks the "Add to Cart" button, 
+the Controller will:Receive this input.
+Update the Model to add the product to the user's shopping cart.
+Update the View to reflect that the product has been added to the cart.
+
+How MVC Works Together:
+The View sends a user request (e.g., submitting a form or clicking a button) to the Controller.
+The Controller processes the request, interacts with the Model to retrieve or modify data, 
+and then decides what View to display based on the data received.
+The Model handles data manipulation (e.g., querying the database or applying business logic).
+The View updates itself with the new data from the Model.
