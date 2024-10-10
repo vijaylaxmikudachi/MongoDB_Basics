@@ -1,0 +1,108 @@
+HTTP status codes are standardized response codes that web servers return when processing requests made by clients (such as browsers or applications). They help clients understand what happened with the request, whether it was successful, if an error occurred, or if additional actions are required.
+
+Status codes are categorized into five main classes based on the first digit of the status code:
+
+1. 1xx: Informational
+These codes indicate that the server has received the request and is continuing the process.
+
+100 Continue: The client should continue with its request. This is usually sent after the client sends the headers, 
+              and the server wants to ensure that it can continue processing.
+101 Switching Protocols: The server agrees to switch to a different protocol as requested by the client, 
+                         typically used for WebSocket connections.
+102 Processing: The server has received and is processing the request, 
+                but no response is available yet (used in WebDAV).
+2. 2xx: Success
+These codes mean that the server successfully processed the request.
+
+200 OK: The request was successful. This is the standard response for successful GET or POST requests. 
+        The response body contains the requested data.
+Example: Successfully fetching a resource.
+
+201 Created: The request has been fulfilled, and a new resource has been created as a result. 
+             This is usually the response to a successful POST request.
+Example: Creating a new user or adding an item to a database.
+
+202 Accepted: The request has been accepted for processing, but the processing has not been completed yet. 
+              This is commonly used for asynchronous tasks.
+Example: Uploading a large file or submitting a job that will take time to complete.
+
+204 No Content: The request was successful, but the server has no data to send back. 
+                Commonly returned for successful DELETE requests.
+Example: Deleting a resource without returning any data.
+
+206 Partial Content: The server is successfully delivering part of the resource due to a Range header in the request. 
+                     Used for large media files where only portions are fetched.
+Example: Streaming a video in chunks.
+
+3. 3xx: Redirection
+These codes indicate that further action is needed from the client to complete the request (like following a redirect).
+
+301 Moved Permanently: The resource has been permanently moved to a new URL. Clients should update their URLs to the new location.
+
+Example: Redirecting from http://example.com to https://example.com after switching to HTTPS.
+302 Found (Temporary Redirect): The resource has temporarily moved to a different URL, but the client should continue to use the original URL for future requests.
+
+Example: Redirecting users to a login page temporarily.
+303 See Other: The response can be found at a different URL and should be retrieved using a GET method. It is often used after a POST request to redirect users to a new page (like a confirmation page).
+
+304 Not Modified: The client has cached the requested resource, and since it hasn't changed on the server, there's no need to send the data again. This improves performance by reducing data transfer.
+
+Example: Browser fetching a webpage that hasn’t changed since the last visit.
+307 Temporary Redirect: Similar to 302, but ensures the method (e.g., POST) remains the same. The resource is temporarily at a different URL.
+
+308 Permanent Redirect: Similar to 301, but guarantees that the method and body will not change during the redirect (useful for form submissions).
+
+4. 4xx: Client Errors
+These codes indicate that the client made an error in the request, such as missing required information, requesting a nonexistent resource, or having inadequate permissions.
+
+400 Bad Request: The server could not understand the request due to malformed syntax or invalid data.
+
+Example: A client submits a form with invalid data.
+401 Unauthorized: The client must authenticate itself to get the requested resource. It usually means that the user isn’t logged in or doesn’t have the correct credentials (though authentication can still be possible with proper credentials).
+
+Example: Trying to access a protected page without logging in.
+403 Forbidden: The client is authenticated, but does not have permission to access the requested resource. Unlike 401, authentication will not make a difference.
+
+Example: Trying to access an admin-only page as a regular user.
+404 Not Found: The server cannot find the requested resource. This is the most common error and usually means the URL is wrong, or the resource does not exist.
+
+Example: Accessing a non-existent page on a website.
+405 Method Not Allowed: The request method (like GET, POST, PUT) is not supported for the requested resource. For example, trying to POST to a URL that only supports GET.
+
+409 Conflict: The request could not be completed because of a conflict with the current state of the resource.
+
+Example: Submitting conflicting data when trying to update a resource.
+410 Gone: The resource was previously available, but has been permanently removed, and will not be available again.
+
+Example: A page that existed but was intentionally removed permanently.
+429 Too Many Requests: The client has sent too many requests in a short period (rate limiting). Often seen when APIs are being overused.
+
+Example: Repeatedly calling an API endpoint within a short time window.
+5. 5xx: Server Errors
+These codes indicate that the server failed to process a valid request. The problem lies on the server side.
+
+500 Internal Server Error: A generic error message when the server encounters an unexpected condition. It’s the server's fault, not the client’s.
+
+Example: A bug in the server-side code causing an exception.
+501 Not Implemented: The server does not recognize the request method or lacks the ability to fulfill it.
+
+Example: An API endpoint not yet supported by the server.
+502 Bad Gateway: The server, acting as a gateway or proxy, received an invalid response from the upstream server.
+
+Example: When a reverse proxy server can’t connect to the upstream application.
+503 Service Unavailable: The server is currently unavailable due to overload or maintenance.
+
+Example: When a web service is temporarily down for maintenance.
+504 Gateway Timeout: The server, acting as a gateway, did not receive a timely response from the upstream server.
+
+Example: When a reverse proxy server times out waiting for an upstream service to respond.
+505 HTTP Version Not Supported: The server doesn’t support the HTTP version used in the request.
+
+Example: A client requesting an outdated HTTP version the server no longer supports.
+
+Code	                Category	                            Meaning
+1xx	                    Informational	                The request is received, processing
+2xx	                    Success	                        The request was successfully processed
+3xx	                    Redirection	                    Further action is required by the client
+4xx	                    Client Errors	                The request has an error from the client
+5xx	                    Server Errors	                The server failed to process the request
